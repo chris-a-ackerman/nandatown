@@ -19,8 +19,6 @@
 
 4. **Trust scores erode rather than differentiate.** Mean trust falls from 0.558 to 0.443 as the late-run rejections accumulate against every seller. Notably, *no* seller ends below the 0.2 threshold (vs. 1 at baseline — seller-37 at 0.000 recovers with more data), so the trust layer never flags anyone as bad. Instead the whole population converges into a mediocre 0.2–0.5 band while the market dies. The `score_average` trust metric is failing to distinguish a market-wide breakdown from individual seller misbehavior.
 
-<!-- Chris: rewrite interpretation here -->
-
 ## Per-round detail
 
 ### baseline.jsonl (10 rounds)
