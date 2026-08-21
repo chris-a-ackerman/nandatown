@@ -1,0 +1,8 @@
+== baseline.jsonl
+PASS marketplace_no_double_sell - checked 266 sales
+PASS marketplace_all_responded - all 500 requests answered
+PASS marketplace_price_agreement - 
+== rounds60.jsonl
+PASS marketplace_no_double_sell - checked 810 sales
+PASS marketplace_all_responded - all 1837 requests answered
+PASS marketplace_price_agreement - 
