@@ -475,6 +475,8 @@ tr:hover td { background: var(--red-bg); }
 (function() {
   "use strict";
 
+  const var_red = "#8B0000";
+
   const COLORS = {
     send: "#1a7a3a",
     receive: "#2563eb",
@@ -509,11 +511,6 @@ tr:hover td { background: var(--red-bg); }
     const reader = new FileReader();
     reader.onload = e => parseAndRender(e.target.result, file.name);
     reader.readAsText(file);
-  }
-
-  const INJECTED_TRACE = "__NEST_TRACE_DATA__";
-  if (INJECTED_TRACE !== "__NEST_" + "TRACE_DATA__") {
-    try { parseAndRender(INJECTED_TRACE, "injected-trace.jsonl"); } catch(e) {}
   }
 
   function parseAndRender(text, filename) {
@@ -767,8 +764,6 @@ tr:hover td { background: var(--red-bg); }
       .on("mousemove", (event, d) => showTooltip(d, event.clientX, event.clientY))
       .on("mouseout", hideTooltip);
   }
-
-  const var_red = "#8B0000";
 
   // ── Graph ──
   function renderGraph() {
@@ -1113,6 +1108,12 @@ tr:hover td { background: var(--red-bg); }
   });
 
   window.__nestLoadTrace = parseAndRender;
+
+  const INJECTED_TRACE = "__NEST_TRACE_DATA__";
+  if (INJECTED_TRACE !== "__NEST_" + "TRACE_DATA__") {
+    try { parseAndRender(INJECTED_TRACE, "injected-trace.jsonl"); }
+    catch(e) { console.error("Failed to render injected trace:", e); }
+  }
 })();
 </script>
 </body>
